@@ -1,7 +1,9 @@
 package main
 
-import "testing"
+import (
+	"testing"
 
+)
 func TestLeftPad_Function_Returns_padded_String(t *testing.T) {
 	result := leftPad(3, "Howdy")
 	expect := "000Howdy"

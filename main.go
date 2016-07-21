@@ -4,6 +4,10 @@ import (
 	"strings"
 )
 
+func main() {
+
+}
+
 func leftPad(paddingLength int, stringToPad string) string {
 	return strings.Repeat("0",paddingLength)+stringToPad
 }
