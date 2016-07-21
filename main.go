@@ -1,4 +1,4 @@
-package Padding_Service
+package main
 
 import (
 	"strings"
