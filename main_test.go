@@ -2,8 +2,9 @@ package main
 
 import (
 	"testing"
-
 )
+
+
 func TestLeftPad_Function_Returns_padded_String(t *testing.T) {
 	result := leftPad(3, "Howdy")
 	expect := "000Howdy"
@@ -13,7 +14,7 @@ func TestLeftPad_Function_Returns_padded_String(t *testing.T) {
 	}
 }
 
-func TestRightPad_Function_StringReturn(t *testing.T) {
+func TestRightPad_Function_Returns_padded_String(t *testing.T) {
 	result := rightPad(3, "Howdy")
 	expect := "Howdy000"
 
