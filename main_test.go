@@ -4,7 +4,6 @@ import (
 	"testing"
 )
 
-
 func TestLeftPad_Function_Returns_padded_String(t *testing.T) {
 	result := leftPad(3, "Howdy")
 	expect := "000Howdy"
@@ -22,8 +21,6 @@ func TestLeftPad_Function_Returns_error_when_number_is_less_than_zero(t *testing
 		t.Errorf("Test Failed, expected: %s but got %s.", expect, result)
 	}
 }
-
-
 
 func TestRightPad_Function_Returns_padded_String(t *testing.T) {
 	result := rightPad(3, "Howdy")
