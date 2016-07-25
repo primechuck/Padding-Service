@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestLeftPad_Function_Returns_padded_String(t *testing.T) {
+func TestLeftPadFunctionReturnspaddedString(t *testing.T) {
 	result := leftPad(3, "Howdy")
 	expect := "000Howdy"
 
@@ -13,7 +13,7 @@ func TestLeftPad_Function_Returns_padded_String(t *testing.T) {
 	}
 }
 
-func TestLeftPad_Function_Returns_error_when_number_is_less_than_zero(t *testing.T) {
+func TestLeftPadFunctionReturnserrorwhennumberislessthanzero(t *testing.T) {
 	result := leftPad(-3, "Howdy")
 	expect := "Padding length must no be negative, value entered was -3"
 
@@ -22,7 +22,7 @@ func TestLeftPad_Function_Returns_error_when_number_is_less_than_zero(t *testing
 	}
 }
 
-func TestRightPad_Function_Returns_padded_String(t *testing.T) {
+func TestRightPadFunctionReturnspaddedString(t *testing.T) {
 	result := rightPad(3, "Howdy")
 	expect := "Howdy000"
 
@@ -31,7 +31,7 @@ func TestRightPad_Function_Returns_padded_String(t *testing.T) {
 	}
 }
 
-func TestRightPad_Function_Returns_error_when_number_is_less_than_zero(t *testing.T) {
+func TestRightPadFunctionReturnserrorwhennumberislessthanzero(t *testing.T) {
 	result := rightPad(-3, "Howdy")
 	expect := "Padding length must no be negative, value entered was -3"
 
