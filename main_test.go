@@ -8,14 +8,16 @@ import (
 )
 
 func TestRightPadAPIReturns(t *testing.T) {
-	expect := "rightPadAPI"
+	expect := `{String: "rightPadAPI", Length: "3"}`
+	b := strings.NewReader(expect)
 
-	r, err := http.NewRequest("GET", "/rightpad", strings.NewReader(expect))
+	r, err := http.NewRequest("POST", "/rightpad", b)
 	if err != nil {
 		t.Fatal(err)
 	}
+
 	responseRecorder := httptest.NewRecorder()
-	rightPadAPI(responseRecorder,r)
+	rightPadAPI(responseRecorder, r)
 
 	if responseRecorder.Body.String() != expect {
 		t.Errorf("Handler returned unexpected body: got %v wanted %v",
@@ -23,16 +25,18 @@ func TestRightPadAPIReturns(t *testing.T) {
 	}
 }
 
-
 func TestLeftPadAPIReturns(t *testing.T) {
-	expect := "leftPadAPI"
 
-	r, err := http.NewRequest("GET", "/leftpad", strings.NewReader(expect))
+	expect := `{String: "leftPadAPI", Length: "3"}`
+	b := strings.NewReader(expect)
+
+	r, err := http.NewRequest("POST", "/leftpad", b)
 	if err != nil {
 		t.Fatal(err)
 	}
+
 	responseRecorder := httptest.NewRecorder()
-	leftPadAPI(responseRecorder,r)
+	leftPadAPI(responseRecorder, r)
 
 	if responseRecorder.Body.String() != expect {
 		t.Errorf("Handler returned unexpected body: got %v wanted %v",
