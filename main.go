@@ -2,8 +2,19 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"strings"
+	"io"
+	"io/ioutil"
 )
+
+func main() {
+}
+
+func leftPadAPI(w http.ResponseWriter, r *http.Request) {
+	request, _ := ioutil.ReadAll(r.Body)
+	io.WriteString(w, string(request))
+}
 
 func leftPad(paddingLength int, stringToPad string) string {
 	if paddingLength < 0 {

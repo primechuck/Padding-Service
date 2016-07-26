@@ -1,10 +1,30 @@
 package main
 
 import (
+	"net/http"
+	"net/http/httptest"
+	"strings"
 	"testing"
 )
 
-func TestLeftPadFunctionReturnspaddedString(t *testing.T) {
+
+func TestLeftPadAPIReturns(t *testing.T) {
+	expect := "leftPadAPI"
+
+	r, err := http.NewRequest("GET", "/leftpad", strings.NewReader(expect))
+	if err != nil {
+		t.Fatal(err)
+	}
+	responseRecorder := httptest.NewRecorder()
+	leftPadAPI(responseRecorder,r)
+
+	if responseRecorder.Body.String() != expect {
+		t.Errorf("Handler returned unexpected body: got %v wanted %v",
+			responseRecorder.Body.String(), expect)
+	}
+}
+
+func TestLeftPad_Function_Returns_padded_String(t *testing.T) {
 	result := leftPad(3, "Howdy")
 	expect := "000Howdy"
 
@@ -13,7 +33,7 @@ func TestLeftPadFunctionReturnspaddedString(t *testing.T) {
 	}
 }
 
-func TestLeftPadFunctionReturnserrorwhennumberislessthanzero(t *testing.T) {
+func TestLeftPad_Function_Returns_error_when_number_is_less_than_zero(t *testing.T) {
 	result := leftPad(-3, "Howdy")
 	expect := "Padding length must no be negative, value entered was -3"
 
@@ -22,7 +42,7 @@ func TestLeftPadFunctionReturnserrorwhennumberislessthanzero(t *testing.T) {
 	}
 }
 
-func TestRightPadFunctionReturnspaddedString(t *testing.T) {
+func TestRightPad_Function_Returns_padded_String(t *testing.T) {
 	result := rightPad(3, "Howdy")
 	expect := "Howdy000"
 
@@ -31,7 +51,7 @@ func TestRightPadFunctionReturnspaddedString(t *testing.T) {
 	}
 }
 
-func TestRightPadFunctionReturnserrorwhennumberislessthanzero(t *testing.T) {
+func TestRightPad_Function_Returns_error_when_number_is_less_than_zero(t *testing.T) {
 	result := rightPad(-3, "Howdy")
 	expect := "Padding length must no be negative, value entered was -3"
 
