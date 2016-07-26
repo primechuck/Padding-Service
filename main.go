@@ -11,6 +11,11 @@ import (
 func main() {
 }
 
+func rightPadAPI(w http.ResponseWriter, r *http.Request) {
+	request, _ := ioutil.ReadAll(r.Body)
+	io.WriteString(w, string(request))
+}
+
 func leftPadAPI(w http.ResponseWriter, r *http.Request) {
 	request, _ := ioutil.ReadAll(r.Body)
 	io.WriteString(w, string(request))
