@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestRightPadAPIReturns(t *testing.T) {
+func TestRightPadAPIPostReturns(t *testing.T) {
 	expect := `{String: "rightPadAPI", Length: "3"}`
 	b := strings.NewReader(expect)
 
@@ -25,7 +25,7 @@ func TestRightPadAPIReturns(t *testing.T) {
 	}
 }
 
-func TestLeftPadAPIReturns(t *testing.T) {
+func TestLeftPadAPIPostReturns(t *testing.T) {
 
 	expect := `{String: "leftPadAPI", Length: "3"}`
 	b := strings.NewReader(expect)
